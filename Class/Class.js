@@ -14,6 +14,7 @@ class Person {
     }
 }
 const smlee = new Person('smlee', 28);
+
 console.log(smlee.name)
 console.log(smlee.age);
 smlee.speak();
@@ -24,7 +25,7 @@ class User {
         this.firstName = firstName
         this.lastName = lastName
         //2.1앞에 this.age는 get을 호출하게됨 , 뒤에 age는 set을 호출하게됨
-        this.age = age
+        this.age = age;
     }
     get age() {
         //2.2 그래서 구분을하기위해 _를 붙힘

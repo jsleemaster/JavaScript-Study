@@ -9,7 +9,23 @@ const promise = new Promise((resolve, reject) => {
     //무거운 작업 (시간이 걸리는 작업은 보통 여기서 처리함 , network, read files)
     console.log('doing something....'); //만드는 순간 바로 실행됨!
     setTimeout(() => {
-        resolve('smlee'); //완성된 데이터를 전달하면 된다 2초뒤에
+        // resolve('smlee'); //완성된 데이터를 전달하면 된다 2초뒤에
+        reject(new Error('no network')) // 에러를 정확히 명시하여 전달해줘야한다
     }, 2000)
 })
+//2. Consumer : then, catch, finally 값을 받아 올 수 있다!
+//성공 실패 끝냄
+promise // 체이닝
+    .then((value) => {
+        //promise가 정상적으로 끝나면 값을 전달해줌 resolve에 들어온 값을 value에 전달해줌 
+        console.log(value)// smlee가 나옴
+    })
+    .catch((error) => {
+        console.log(error) // no netWork 가 전달됨
+    })
+    .finally(() => {
+        console.log('finally') //성공이나 실패가 끝나면 무조건 나옴
+    })
+
+
 

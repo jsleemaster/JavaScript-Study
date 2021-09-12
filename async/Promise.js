@@ -27,5 +27,44 @@ promise // 체이닝
         console.log('finally') //성공이나 실패가 끝나면 무조건 나옴
     })
 
+//3. promise 체이닝
+const fetchNumber = new Promise((res, rej) => {
+    setTimeout(() => {
+        res((1))
+    }, 2000)
+});
+fetchNumber
+    .then(num => num * 2) //2
+    .then(num => num * 3) // 6
+    .then(num => {
+        return new Promise((res, rej) => {
+            setTimeout(() => {
+                res(num - 1) // 5
+            }, 2000)
+        })
+    })
+    .then((num => console.log(num) // 4초뒤에 5가 전달됨
+    ))
 
-
+//4.오류 핸들링
+const 치킨얻기 = () =>
+    new Promise((res, rej) => {
+        setTimeout(() => res('치킨'), 1000)
+    });
+const 계란얻기 = () =>
+    new Promise((res, rej) => {
+        // setTimeout(() => res('계란'), 1000)
+        setTimeout(() => rej(new Error(`error! 계란! `)), 1000)
+    });
+const 계란후라이 = () =>
+    new Promise((res, rej) => {
+        setTimeout(() => res('후라이'), 1000)
+    });
+치킨얻기()
+    .then(계란얻기())
+    .catch((error) => {
+        return '계란 실패 했으니 빵을 가져라' // 위 과정에서 실패하면 이 값을던져라
+    })
+    .then(계란후라이())
+    .then(식사 => console.log(식사)) // 치킨 -> 계란 -> 후라이가 나온다 3초뒤
+    .catch(console.log) // 에러를 보여준다!

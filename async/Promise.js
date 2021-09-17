@@ -13,6 +13,15 @@ const promise = new Promise((resolve, reject) => {
         reject(new Error('no network')) // 에러를 정확히 명시하여 전달해줘야한다
     }, 2000)
 })
+let p = new Promise((res, rej) => {
+    let a = 1 + 1
+    if (a === 2) {
+        res('Success')
+    } else {
+        rej('Fail')
+    }
+})
+
 //2. Consumer : then, catch, finally 값을 받아 올 수 있다!
 //성공 실패 끝냄
 promise // 체이닝
@@ -68,3 +77,30 @@ const 계란후라이 = () =>
     .then(계란후라이())
     .then(식사 => console.log(식사)) // 치킨 -> 계란 -> 후라이가 나온다 3초뒤
     .catch(console.log) // 에러를 보여준다!
+
+//Promise All
+
+const recordVideoOne = new Promise((resolve, reject) => {
+    resolve('Video 1')
+})
+const recordVideoTwo = new Promise((resolve, reject) => {
+    resolve('Video 2')
+})
+const recordVideoThree = new Promise((resolve, reject) => {
+    resolve('Video 3')
+})
+
+Promise.all([
+    recordVideoOne,
+    recordVideoTwo,
+    recordVideoThree,
+]).then((message) => {
+    console.log(message)// 0 :video1 ,1: video 2 , 2:video 3
+})
+Promise.race([
+    recordVideoOne,
+    recordVideoTwo,
+    recordVideoThree,
+]).then((message) => {
+    console.log(message)// video 1 
+})

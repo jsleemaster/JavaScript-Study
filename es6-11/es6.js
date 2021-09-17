@@ -53,3 +53,4 @@ const component = isCat ? 'true' : 'false'
 
 //탬플릿 리터럴
 console.log(`hihi+ ${hihi}`)
+

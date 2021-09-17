@@ -47,3 +47,9 @@ const number = [...number1, ...number2] // 1,2,3,4 로 출력됨
 const number1 = { key: '1' }
 const number2 = { key: '2' }
 const number3 = { ...number1, ...number2 } //key : 2 // 객체는 마지막에 있는 아이가 값을 최종적으로 덮어씌움
+
+//응 아니 연산자
+const component = isCat ? 'true' : 'false'
+
+//탬플릿 리터럴
+console.log(`hihi+ ${hihi}`)

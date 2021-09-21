@@ -8,3 +8,4 @@ function User(name, age) {
 const User1 = new User('smlee', 22)
 let user1 = new User('smlee', 24)
 user1.sayName() // smlee
+//생성자를 이용

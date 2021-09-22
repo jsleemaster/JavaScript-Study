@@ -70,4 +70,25 @@ Object.assign(user, user2) //복사하고자하는 값, 복사되는 값, 여러
 Object.assign({ }, test1, test2) //test1과 test2에 동일한 key가 있다면 뒷쪽이 우선순위라서 test2에 있는 키가 할당이 됨
 const 예제 = Object.assign({ }, test1) //이런식으로 예제에 담아서 보여줄수도 있다.
 
+//Computed property 계산된 속성
+let a = 'age';
+const user = {
+    name: 'Mike',
+    [a]: 30 // age : 30
+}
 
+//Object.assign()
+const cloneUser = Object.assign({ }, user) // user가 {}에 복사됨
+
+//Object.keys(); //키를 배열로
+Object.keys(user) // name , age
+//Object.values(); // 값을 배열로
+Object.values(user) // mike, 30
+//Object.entries() //키, 값을 배열로
+Object.entries(user) // ["name","Mike"],["age",30]
+//Object.fromEntries(); //키,값 배열을 객체로
+const arr = [
+    ["name", "Mike"],
+    ["age", 30]
+]
+Object.fromEntries(arr) // { name: 'Mike', age: 30}

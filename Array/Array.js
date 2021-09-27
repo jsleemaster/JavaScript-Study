@@ -48,10 +48,14 @@ console.log(fruit) // '오렌지','사과','바나나'
 
 //splice
 fruit.splice(1, 1) // 시작할 위치, 몇개를 지울지
-fruit.splice(1, 0) // 원하는 위치에서 넣을 수도 있다. ex)fruit.splice(1,0,'사과')
+fruit.splice(1, 0) // 원하는 위치에서 넣을 수도 있다. ex)fruit.splice(1,0,'사과') // 추가
+const result = fruit.splice(1, 0) //반환도 함
 console.log(fruit) // '오렌지','바나나'
 fruit.splice(1, 1, '사과', '귤') // 시작할 위치, 몇개를 지울지 , 그 자리에 뭘 넣을지,뭘넣을지 추가2
 console.log(fruit) // '오렌지','사과','귤'
+
+//slice
+arr1.slice(n, m) // n부터 m 까지 반환 , 아무것도 넣지않으면 복사됨
 
 //5. 병합
 const fruit2 = ['체리', '망고'];
@@ -69,5 +73,4 @@ console.log(fruit3.includes('감')) // false
 fruit3.push('체리')
 //동일한 값이 있다면 가장 앞에서부터 일치하는걸 찾아서 반환하기 떄문에 뒤에서부터도 찾을 수 있다.
 console.log(fruit3.lastIndexOf('체리')) // 5
-
 

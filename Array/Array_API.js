@@ -1,8 +1,8 @@
-//1.주어진 배열을 스트링으로 변환
+//1.주어진 배열을 문자열로 변환
 const fruits = ['apple', 'banana', 'orange'];
 const result = fruit.join(','); //apple,banana, orange
 
-//2. 주어진 스트링을 배열로 변환
+//2. 주어진 문자열을 배열로 변환
 const fruits = 'a, b, c, d';
 const result = fruits.split(',') // ['a','b','c','d']
 //split(',',2) ['a','b']
@@ -34,10 +34,12 @@ const students = [
     new Student('F', 18, true, 88),
 ]
 //5. 스코어가 90점이상인 학생을 찾기 (하나만 찾기)
+// //첫번째 true 값만 반환하고 끝 없으면 undefined를 반환
 const result = students.find((v, i) => v.score === 90)
+students.findIndexOf((v, i) => v.score === 90) //index위치 찾기
 console.log(result) // student C에 값이 출력됨
 
-//6.수업이 등록된 학생들만 찾기 (원하는 값만 찾기)
+//6.수업이 등록된 학생들만 찾기 (원하는 값 모두 찾기)
 const result = students.filter((v) => v.enrolled);
 console.log(result) // true인 값 3개만 출력됨
 
@@ -74,6 +76,8 @@ const result = students
     //a이전값과 b현재값을 전달
     .join()
 
+// Array.isArray()
+Array.isArray(arr1) // false , true 로 변환
 
 
 

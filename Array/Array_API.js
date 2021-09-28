@@ -72,8 +72,10 @@ const result = students
 const result = students
     .map((v) => v.score)
     .sort((a, b) => a - b) //점수가 늦은순으로 나옴 반대로 하고싶으면 b-a
+    //배열의 첫번째부터 두번째값이랑 비교해서 정렬을 시켜주는 거임
     //b가 a보다 크다면 -니까 낮은 순으로 정렬된다. 
     //a이전값과 b현재값을 전달
+    //lodash 라이브러리를 이용해도 괜찮다 =>_.sortBy(arr)
     .join()
 
 // Array.isArray()

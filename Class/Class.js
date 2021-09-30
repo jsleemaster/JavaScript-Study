@@ -96,3 +96,28 @@ class Triangle extends Shape {
 Triangle instanceof Shape // True
 Triangle instanceof Object // True
 Triangle instanceof Rectangle // False
+
+class car {
+    constructor(color) {
+        this.color = color;
+        this.wheels = 4
+    }
+    stop() {
+        console.log('off')
+    }
+}
+//자식생성자는 무조건 부모 생성자를 생성해야한다.
+class Bmw extends car {
+    constructor(color) {
+        super(color); //자식은 항상 부모의 컨스트럭쳐를 실행해야한다 super()를 통해
+        this.navigation = 1;
+    }
+    park() {
+        console.log('Park')
+    }
+    stop() {
+        super.stop() //car의 스톱을 이용한다 -> 즉 어미의 Stop만이 아니라 이 스톱도 이용한다.
+        console.log('stop')
+    }
+}
+const z4 = new Bmw("blue")

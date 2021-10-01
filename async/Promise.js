@@ -104,3 +104,5 @@ Promise.race([
 ]).then((message) => {
     console.log(message)// video 1 
 })
+
+//promise.all //모든 작업이 성공해야 결과 출력

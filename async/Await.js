@@ -53,3 +53,15 @@ function 과일하나() {
 }
 과일하나().then(console.log)
 
+async function getName() {
+    throw new Error('error!')
+}
+
+getName.catch((err) => {
+    console.log(err)
+})
+async function showName() {
+    //에러는 try catch 문으로 확인가능
+    const result = await getName('Mike'); //기다렸다가 reslve가되면 값을 넣어준다
+    console.log(result)
+}

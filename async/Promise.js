@@ -97,7 +97,7 @@ Promise.all([
 ]).then((message) => {
     console.log(message)// 0 :video1 ,1: video 2 , 2:video 3
 })
-Promise.race([
+Promise.race([ //전달된 프로미 중에 가장 먼저 완료된 결과값으로 이행/거부
     recordVideoOne,
     recordVideoTwo,
     recordVideoThree,
@@ -105,4 +105,8 @@ Promise.race([
     console.log(message)// video 1 
 })
 
+Promise.any([]) //가장 빠르게 이행된 프로미스를 반환
+    .then(() => console.log('성공'))
+    .catch((e) => console.log(e))
 //promise.all //모든 작업이 성공해야 결과 출력
+

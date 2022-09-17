@@ -92,3 +92,9 @@ const arr = [
     ["age", 30]
 ]
 Object.fromEntries(arr) // { name: 'Mike', age: 30}
+
+//스프레드 연산자 활용
+const objA = {a:1}
+const objB = {b:2}
+const mergeAB = {...objA, ...objB} // {a:1, b:2}
+const addA = {...objA, b:2} // {a:1, b:2}

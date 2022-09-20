@@ -82,4 +82,11 @@ const result = students
 Array.isArray(arr1) // false , true 로 변환
 
 
+//sort
+let num = [4,6,1,2] 
+num.sort((a,b)=> a-b) // 1,2,4,6
+num.sort((a,b)=> b-a) // 6,4,2,1
+// a 가 b 보다 작다면 return -1
+// a 가 b 보다 크다면 return 1 
+// 같다면 return 0
 

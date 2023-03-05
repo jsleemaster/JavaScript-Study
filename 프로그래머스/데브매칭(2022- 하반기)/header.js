@@ -1,6 +1,6 @@
 class Header {
-  constructor(body) {
-    this.$body = body
+  constructor($body) {
+    this.$body = $body
   }
   createMenuItem(divClass, spanClass, spanId, text) {
     const div = document.createElement('div');
@@ -25,6 +25,24 @@ class Header {
 
     header.appendChild(home);
     header.appendChild(signUp);
+
+    // HOME 메뉴 클릭 이벤트
+    home_menu.addEventListener("click", () => {
+      window.history.pushState("", "", "/web/");
+      const urlChange = new CustomEvent("urlchange", {
+        detail: { href: "/web/" }
+      });
+      document.dispatchEvent(urlChange);
+    });
+
+    // SIGNUP 메뉴 클릭 이벤트
+    signup_menu.addEventListener("click", () => {
+      window.history.pushState("", "", "/web/signup");
+      const urlChange = new CustomEvent("urlchange", {
+        detail: { href: "/web/signup" }
+      });
+      document.dispatchEvent(urlChange);
+    });
 
     this.$body.appendChild = header;
   }

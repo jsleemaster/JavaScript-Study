@@ -5,6 +5,20 @@ class CardView {
     this.$main = $main;
   }
 
+  infiniteScroll(container, localStroage) {
+    let target = document.getElementById("cards_container").lastChild;
+
+    const io = new IntersectionObserver((entry, observer) => {
+      if (entry[0].isIntersecting) {
+        io.unobserve(target)
+      }
+    }, {
+      threshold: 0.7
+    });
+
+    io.observe(target);
+  }
+
   render() {
     const containerDiv = document.createElement("div");
     containerDiv.setAttribute("id", "cards_container");
@@ -18,6 +32,8 @@ class CardView {
       card.appendChild(cardPlane("back", personalInfo[i].nickname));
       containerDiv.appendChild(card);
     }
+
+    this.infiniteScroll(containerDiv, personalInfo)
   }
 }
 export default CardView;

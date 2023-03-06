@@ -1,6 +1,6 @@
 import Header from './header';
 import HomePage from './homePage';
-import SignUpPage from './SignPage';
+import SignUpPage from './signPage';
 import { setPersonalInfo } from './storage';
 
 class App {
